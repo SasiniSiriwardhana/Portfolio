@@ -54,34 +54,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => observer.observe(el));
 
-    // ── 4. CONTACT FORM ──
+    // ── 4. CONTACT FORM (FormSubmit Integration) ──
     const form = document.getElementById('contactForm');
     const formMsg = document.getElementById('formMsg');
     if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
             const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject') ? document.getElementById('subject').value.trim() : '';
             const message = document.getElementById('message').value.trim();
+            const btn = form.querySelector('button[type="submit"]');
+
             if (!name || !email || !message) {
-                formMsg.textContent = 'Please fill in all fields.';
+                formMsg.textContent = 'Please fill in all required fields.';
                 formMsg.className = 'form-msg error';
                 return;
             }
-            const btn = form.querySelector('button[type="submit"]');
-            btn.innerHTML = '<span>✓ Message Sent!</span>';
-            btn.style.background = 'linear-gradient(135deg, #10b981, #06b6d4)';
-            btn.style.color = '#fff';
-            formMsg.textContent = 'Thank you! I will get back to you soon.';
-            formMsg.className = 'form-msg success';
-            form.reset();
-            setTimeout(() => {
-                btn.innerHTML = '<span>Send Message</span> <span class="send-arrow">→</span>';
-                btn.style.background = '';
-                btn.style.color = '';
-                formMsg.textContent = '';
-                formMsg.className = 'form-msg';
-            }, 5000);
+
+            // Disable button & show loading state
+            btn.disabled = true;
+            btn.innerHTML = '<span>Sending Message...</span>';
+            formMsg.textContent = '';
+            formMsg.className = 'form-msg';
+
+            try {
+                const response = await fetch('https://formsubmit.co/ajax/sasinisiriwardhana0106@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        email: email,
+                        _subject: subject ? `Portfolio Message: ${subject} (${name})` : `New Message from Portfolio (${name})`,
+                        subject: subject || 'General Inquiry',
+                        message: message,
+                        _template: 'table',
+                        _captcha: 'false'
+                    })
+                });
+
+                if (response.ok) {
+                    btn.innerHTML = '<span>✓ Message Sent Successfully!</span>';
+                    btn.style.background = 'linear-gradient(135deg, #10b981, #06b6d4)';
+                    btn.style.color = '#fff';
+                    formMsg.textContent = 'Thank you! Your message has been sent directly to Sasini.';
+                    formMsg.className = 'form-msg success';
+                    form.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                btn.innerHTML = '<span>Failed to Send</span>';
+                btn.style.background = 'linear-gradient(135deg, #ef4444, #f43f5e)';
+                btn.style.color = '#fff';
+                formMsg.innerHTML = 'Could not send automatically. Please email directly to <a href="mailto:sasinisiriwardhana0106@gmail.com" style="color: #22d3ee; text-decoration: underline;">sasinisiriwardhana0106@gmail.com</a>';
+                formMsg.className = 'form-msg error';
+            } finally {
+                setTimeout(() => {
+                    btn.disabled = false;
+                    btn.innerHTML = '<span>Send Message</span> <span class="send-arrow">→</span>';
+                    btn.style.background = '';
+                    btn.style.color = '';
+                }, 6000);
+            }
         });
     }
 
