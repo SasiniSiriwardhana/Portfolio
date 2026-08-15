@@ -6,12 +6,19 @@ Features modern glassmorphism aesthetics, animated mesh background, interactive 
 
 ---
 
+## 🔗 Live Demo
+
+👉 [https://sasinisiriwardhana.github.io/Portfolio/](https://sasinisiriwardhana.github.io/Portfolio/)
+
+---
+
 ## 🛠️ Built With
 
 - **HTML5** — Semantic, accessible markup
 - **CSS3** — Custom glassmorphism, responsive grid layouts, and glow micro-interactions
 - **JavaScript (Vanilla)** — Dynamic typewriter, scroll reveal, sticky navigation, and active section tracking
 - **Google Fonts** — Outfit typography
+- **FormSubmit** — Real-time contact form email forwarding
 
 ---
 
@@ -45,8 +52,8 @@ Features modern glassmorphism aesthetics, animated mesh background, interactive 
 Simply clone the repository and open `index.html` in your browser:
 
 ```bash
-git clone https://github.com/SasiniSiriwardhana/portfolio.git
-cd portfolio
+git clone https://github.com/SasiniSiriwardhana/Portfolio.git
+cd Portfolio
 ```
 
 Open `index.html` directly in any web browser.
