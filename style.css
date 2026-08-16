@@ -825,6 +825,186 @@ nav.scrolled {
 }
 
 /* ═══════════════════════════════════════════
+   WORK EXPERIENCE — Executive Card Design
+═══════════════════════════════════════════ */
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.exp-card {
+    position: relative;
+    padding: 2.8rem;
+    border-radius: 26px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(6, 182, 212, 0.35);
+    box-shadow: 0 20px 60px rgba(6, 182, 212, 0.12);
+}
+
+.exp-card__accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+}
+
+.exp-card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.exp-role-info {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.exp-icon-box {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(59, 130, 246, 0.15));
+    border: 1px solid rgba(6, 182, 212, 0.35);
+    color: #22d3ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.exp-role-title {
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.01em;
+}
+
+.exp-company-name {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--grad-1);
+}
+
+.exp-meta-badges {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.exp-duration-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+.exp-duration-badge svg {
+    color: #38bdf8;
+}
+
+.exp-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 50px;
+    background: rgba(52, 211, 153, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.25);
+    color: #6ee7b7;
+    font-size: 0.84rem;
+    font-weight: 600;
+}
+
+.exp-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 6px #34d399;
+}
+
+.exp-summary {
+    color: var(--text-secondary);
+    font-size: 0.96rem;
+    line-height: 1.7;
+    margin-bottom: 1.4rem;
+}
+
+.exp-highlights {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.8rem;
+}
+
+.exp-highlights li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: #cbd5e1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.exp-highlights li::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #22d3ee;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.exp-tags span {
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    color: #67e8f9;
+}
+
+@media (max-width: 600px) {
+    .exp-card {
+        padding: 2rem 1.5rem;
+    }
+    .exp-card__top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ═══════════════════════════════════════════
    METHODOLOGY (5 CARDS) — Senior UX/UI Design
 ═══════════════════════════════════════════ */
 .process-wrapper--5col {
