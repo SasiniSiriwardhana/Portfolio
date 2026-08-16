@@ -127,13 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // ── 6. TYPEWRITER EFFECT ──
     const roles = [
-        'Agile & Scrum Enthusiast',
+        'Aspiring Project Manager',
+        'Business Analyst',
         'Full-Stack Developer',
-        'MIT Undergraduate',
-        'Tech Writer',
-        'Aspiring Project Manager'
+        'Agile & Scrum Enthusiast',
+        'BSc (Hons) MIT Undergraduate'
     ];
     let roleIndex = 0;
     let charIndex = 0;
